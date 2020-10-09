@@ -15,6 +15,14 @@ public class ControllerJogador : MonoBehaviour
         Vector3 direcao = new Vector3(eixoX, 0, eixoZ);
         float tempoPorSegundo = Time.deltaTime; // tempo por segundo para mover um quadradinho no cenário
         transform.Translate(direcao * Velocidade * tempoPorSegundo );
+        bool movendo = false;
+        if(direcao != Vector3.zero){
+            movendo = true;
+
+        }else{
+           movendo = false;
+        }
+        GetComponent<Animator>().SetBool("Movendo", movendo);
         
     }
 }
