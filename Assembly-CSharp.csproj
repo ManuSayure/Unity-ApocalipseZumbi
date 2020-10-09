@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Prefabs\Personagens\controllerJogador.cs" />
+     <Compile Include="Assets\Scripts\ControllerCamera.cs" />
      <Compile Include="Assets\Scripts\ControllerJogador.cs" />
      <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes.txt" />
      <None Include="Assets\Modelos3D\Personagens\Animacoes\Animacoes_Zumbi.txt" />
