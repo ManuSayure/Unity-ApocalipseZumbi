@@ -33,5 +33,7 @@ public class ControllerJogador : MonoBehaviour
         
         GetComponent<Rigidbody>().MovePosition
             ( posicaoJogador +  (direcao * Velocidade *tempoPorSegundo ));
+        Ray raio = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(raio.origin, raio.direction * 100, Color.red);
     }
 }
