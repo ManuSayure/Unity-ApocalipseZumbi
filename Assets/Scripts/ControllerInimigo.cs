@@ -29,4 +29,9 @@ public class ControllerInimigo : MonoBehaviour
         }
         
     }
+    void AtacaJogador()
+    {
+        Time.timeScale = 0;
+        Jogador.GetComponent<ControllerJogador>().TextGameOver.SetActive(true); //setando a exibição do game over no momento que o zumbi ataca o jogador
+    }
 }
