@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 2180969461114435865}
   m_Layer: 0
   m_Name: Zumbi
-  m_TagString: Inimigo
+  m_TagString: zumbi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,6 +638,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3970d628b2fc8d41b5c2146eb3800b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Jogador: {fileID: 2448834932336162468, guid: d47aa60621947c44f9ec822f9b6aef09, type: 3}
+  Velocidade: 5
 --- !u!54 &2180969461114435865
 Rigidbody:
   m_ObjectHideFlags: 0

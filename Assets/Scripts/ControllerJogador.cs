@@ -6,6 +6,7 @@ public class ControllerJogador : MonoBehaviour
 {
     public float Velocidade = 10;  
     Vector3 direcao;
+    public LayerMask mascaraChao;
     
 
     // Update is called once per frame    
@@ -27,13 +28,24 @@ public class ControllerJogador : MonoBehaviour
         GetComponent<Animator>().SetBool("Movendo", movendo);
         
     }
+    /* Funcao FixedUpdate é usada sempre que precisamos aplicar física nos gameObjects*/
     void FixedUpdate() {
         float tempoPorSegundo = Time.deltaTime;
         Vector3 posicaoJogador = GetComponent<Rigidbody>().position;
         
-        GetComponent<Rigidbody>().MovePosition
-            ( posicaoJogador +  (direcao * Velocidade *tempoPorSegundo ));
+        GetComponent<Rigidbody>().MovePosition( posicaoJogador +  (direcao * Velocidade * tempoPorSegundo ));
+
         Ray raio = Camera.main.ScreenPointToRay(Input.mousePosition);
         Debug.DrawRay(raio.origin, raio.direction * 100, Color.red);
+        RaycastHit impacto; // guardar posicao onde raio toca o chao do cenario
+
+        if(Physics.Raycast(raio, out impacto, 100, mascaraChao)) {
+            Vector3 posicaoMiraJogador = impacto.point - transform.position; // posicao em relação ao jogador            
+            posicaoMiraJogador.y = transform.position.y;//Jogando a posicaoMiraJogador para o mesmo ponto y do jogador
+            Quaternion novaRotacao = Quaternion.LookRotation(posicaoMiraJogador); //cria uma nova rotacao a partir da posicaoMiraJogador
+            GetComponent<Rigidbody>().MoveRotation(novaRotacao); //nova rotacao do jogador
+
+        }
+
     }
 }

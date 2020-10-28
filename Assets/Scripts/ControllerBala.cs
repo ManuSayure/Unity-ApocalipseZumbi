@@ -19,9 +19,10 @@ public class ControllerBala : MonoBehaviour
     //Funcao para destruir zumbi atingido pela bala e em seguida destruir a bala
     void OnTriggerEnter(Collider objetoDeColisao)
     {
-        if(objetoDeColisao.tag == "inimigo")
+        if(objetoDeColisao.tag == "zumbi")
         {
             Destroy(objetoDeColisao.gameObject);
+            Destroy(gameObject);
         }
         Destroy(gameObject);
         
